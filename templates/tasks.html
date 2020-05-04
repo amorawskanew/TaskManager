@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+</html>
+{% extends 'base.html'%} {% block content %}
+<div class="row">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for task in tasks %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s3">
+                    <i class="material-icons">expand_more</i>
+                    <a class="waves-effect waves-light btn btn_small">Done</a>
+                    <a class="waves-effect waves-light btn btn_small blue">Edit</a>
+                    
+                </div>
+                <div class="task_header col s9">
+                    <strong>{{task.task_name}}</strong> - {{task.due_date}}
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                {{task.task_description}} 
+            </span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
